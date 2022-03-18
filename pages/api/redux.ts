@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/dist/query/react'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { Pokemon } from '../../lib/models/pokemon'
 
 export interface ApiState {
   data: any
@@ -34,10 +35,13 @@ export const pokemonApi = createApi({
     getPokemonByName: builder.query<any, string>({
       query: (name) => `pokemon/${name}`,
     }),
+    getPokemon: builder.query<Pokemon, number>({
+      query: (id) => `pokemon/${id}`
+    })
   }),
 })
 
-export const { useGetPokemonByNameQuery } = pokemonApi
+export const { useGetPokemonQuery } = pokemonApi
 
 //--store
 

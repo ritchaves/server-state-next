@@ -1,19 +1,22 @@
 import { NextPage } from "next";
 import { useQuery } from "react-query";
+import { Pokemon } from "../../../lib/models/pokemon";
+
+const randomNumber = Math.floor(Math.random() * 200);
 
 const fetchPost = () =>
-  fetch("https://api.github.com/repos/tannerlinsley/react-query").then((res) =>
+  fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`).then((res) =>
     res.json()
   );
 
 const WithSelector: NextPage = () => {
-  const { isLoading, error, data } = useQuery<boolean, Error, any>(
-    "repoData",
+  const { isLoading, error, data } = useQuery<Pokemon, Error, any>(
+    "pokiSelect",
     fetchPost,
     {
-      select: (repoData: any) => ({
-        name: repoData?.name,
-        subscribers_count: repoData.subscribers_count,
+      select: (data: Pokemon) => ({
+        name: data?.name,
+        subscribers_count: data.moves,
       }),
     }
   );
@@ -25,7 +28,7 @@ const WithSelector: NextPage = () => {
   return (
     <div>
       Selector:
-      {data.name} {data.subscribers_count}
+      {data.name} {data.moves}
     </div>
   );
 };
