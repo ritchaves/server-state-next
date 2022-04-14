@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Link from "next/link";
 
 import { useQuery } from "react-query";
 import Pokedex from "../../components/pokedex";
@@ -25,7 +26,19 @@ const NormalQuery: NextPage = () => {
 };
 
 const ReactQuery: NextPage = () => {
-  return <NormalQuery />;
+  return (
+    <>
+      <NormalQuery />
+      <div className="col-start-2 col-end-3 row-start-3 flex justify-end">
+        <Link href="/react-query/multiple-query">
+          <a className="underline underline-offset-4 m-1">multiple query</a>
+        </Link>
+        <Link href="/react-query/selector">
+          <a className="underline underline-offset-4 m-1">selector</a>
+        </Link>
+      </div>
+    </>
+  );
 };
 
 export default ReactQuery;
