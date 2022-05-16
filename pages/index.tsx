@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="flex min-h-screen flex-1 flex-col justify-center items-center">
-        <h1 className="text-4xl m-10">Server State</h1>
+        <h1 className="text-4xl m-10">State libraries</h1>
         <div className="flex justify-center items-center max-w-md	flex-wrap max-w-4xl">
           <Link href="/react-query">
             <a className={card}>
@@ -38,9 +38,13 @@ const Home: NextPage = () => {
           <Link href="/comparison">
             <a className={card}>
               <h2 className="text-xl">Comparison &rarr;</h2>
-              <p>
-                Instantly deploy your Next.js site to a public URL with Vercel.
-              </p>
+              <p>Bullet points of comparison</p>
+            </a>
+          </Link>
+          <Link href="/redux">
+            <a className={card}>
+              <h2 className="text-xl">Redux &rarr;</h2>
+              <p>Client side: redux</p>
             </a>
           </Link>
         </div>

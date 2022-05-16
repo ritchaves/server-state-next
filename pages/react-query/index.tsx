@@ -14,7 +14,7 @@ const fetchPost = () =>
 
 const NormalQuery: NextPage = () => {
   const { isLoading, error, data } = useQuery<boolean, Error, Pokemon>(
-    "repoData",
+    "pokemon",
     fetchPost
   );
 
